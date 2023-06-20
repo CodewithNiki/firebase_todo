@@ -3,6 +3,7 @@ import { useState } from "react"
 
 const Todo = ({todo, handleDelete, handleEdit}) => {
     const [newTodo, setNewTodo] = useState(todo.todo);
+    const [updated, setUpdated] = useState(false)
     const handleChange = (e)=>{
         e.preventDefault();
         setNewTodo(e.target.value)
@@ -14,7 +15,8 @@ const Todo = ({todo, handleDelete, handleEdit}) => {
         onClick={()=> handleEdit(todo, newTodo)} >Update
         </button>
         <button className=" border-2 border-red-600 bg-red-600 text-white px-3 py-1 hover:opacity-80"
-        onClick={()=> handleDelete(todo.id)}>Delete
+        onClick={()=> {handleDelete(todo.id), setUpdated(true)}}>Delete
+        {updated && <div className=" text-green-500 text-sm">Updated</div>}
         </button>
     </div>
   )

@@ -1,6 +1,6 @@
 import { useEffect, useState, } from "react";
 import Todo from "./components/Todo";
-import { db } from "./firebase/firebase.config";
+import { db } from "./.env/firebase.config";
 import { collection, doc, addDoc, deleteDoc, serverTimestamp, getDocs, updateDoc } from "firebase/firestore";
 
 
